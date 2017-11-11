@@ -33,7 +33,7 @@ $ chmod 755 pingg
 
 ## How to use
 
-Using `pingg` is as simple as typing script name in your terminal window:
+Using `pingg` is as simple as typing the script name in your terminal window:
 
 ```bash
 $ pingg
