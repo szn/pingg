@@ -38,7 +38,7 @@ Using `pingg` is as simple as typing script name in your terminal window:
 ```bash
 $ pingg
 IP address 8.8.8.8
-    29ms 
+   499ms ====================
     30ms
 ```
 
