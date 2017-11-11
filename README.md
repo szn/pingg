@@ -48,5 +48,3 @@ IP address 8.8.8.8
 $ pingg 8.8.4.4
 $ pingg nieradka.net
 ```
-
-## How it works
