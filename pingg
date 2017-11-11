@@ -1,0 +1,40 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+INTERVAL=5
+HOST=${1:-8.8.8.8}
+
+function resolveAddress(){
+	if [[ $1 =~ ^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$ ]]; then
+		echo "IP address $1"
+	else
+		echo -n "Checking IP address $1... "
+		IP=$(dig +short -4 "$1" A | grep -v "dig:" | grep -v ";;" || true)
+		if [ $(echo "${IP}" | grep "." | wc -l) -eq 1 ]; then
+			echo ${IP}
+		else
+			echo "can't resolve IP"
+			exit -1
+		fi
+	fi
+}
+
+resolveAddress "$HOST"
+
+while true; do
+	COLS=$(echo "scale=1; (`tput cols` - 8) / 7.5" | bc)
+	PING=$(ping -c 1 -t $INTERVAL $HOST 2>&1 | grep 'icmp_seq' || true)
+	if [ -z "$PING" ]
+	then
+		TIME=$(echo "$INTERVAL*1000" | bc)
+		PRINT_TIME="99999"
+	else
+		TIME=$(echo $PING | cut -d'=' -f 4 | cut -d' ' -f 1 | cut -d'.' -f 1)
+		PRINT_TIME=$TIME
+	fi
+	printf '%8s %s' "${PRINT_TIME}ms"
+	EVAL=$(echo "scale=1;if($PRINT_TIME < 100) 1 else (l($PRINT_TIME) - 4) * $COLS" | bc -l | cut -d. -f 1)
+	seq -s "=" $EVAL | sed 's/[0-9]//g'
+	sleep $(echo "$INTERVAL - $TIME/1000" | bc -l)
+done
