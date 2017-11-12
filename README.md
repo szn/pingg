@@ -16,15 +16,15 @@ Advantages over plain `ping` are:
 
 1. It performs a `ping` request every 5 seconds (we don't need stats every second);
 2. It waits up to 5 seconds before request timeout (this is maximum reasonable request response time);
-3. Response time is presented graphicaly where `1ms` is represented by empty bar and timeout is represented by a line filled with `=` signs;
+3. Response time is presented graphicaly where `1ms` is represented by empty bar and timeout is represented by a screen-wide bar of `=` signs;
 4. The bar length is in a logarithmic scale to better represent observable internet connection quality.
 
 ## Installation guide
 
 In order to 'install' `pingg` you need to place the only script available within this repository in your exacutable path. For example:
 
-```
-$ cd <any directory within you $PATH>
+```sh
+$ cd <any directory within your $PATH>
 $ wget https://github.com/szn/pingg/raw/master/pingg
 $ chmod 755 pingg
 ```
@@ -35,7 +35,7 @@ $ chmod 755 pingg
 
 Using `pingg` is as simple as typing the script name in your terminal window:
 
-```bash
+```sh
 $ pingg
 IP address 8.8.8.8
    499ms ====================
@@ -44,7 +44,7 @@ IP address 8.8.8.8
 
 `pingg` uses Google DNS server IP address by default (`8.8.8.8`). You could change that providing either an IP address or host name as the first parameter. Examples are:
 
-```bash
+```sh
 $ pingg 8.8.4.4
 $ pingg nieradka.net
 ```
