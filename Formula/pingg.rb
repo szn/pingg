@@ -1,4 +1,4 @@
-class Hello < Formula
+class Pingg < Formula
   desc "Graphical ping utility to monitor your internet connection quality"
   homepage "https://github.com/szn/pingg"
   url "https://github.com/szn/pingg/archive/refs/tags/v1.0.0.tar.gz"
