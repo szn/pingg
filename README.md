@@ -31,6 +31,15 @@ $ chmod 755 pingg
 
 `pingg` uses external utilities such as, `dig`, `grep`, `wc`, `tput`, `ping`, `cut`, `bc`, `printf` and `seq`. All of them should be available in any mordern unix-alike operating system.
 
+### Brew/OSX install
+
+`pingg` is a valid Homebrew cask:
+
+```sh
+$ brew tap szn/pingg https://github.com/szn/pingg.git
+$ brew install szn/pingg/pingg
+```
+
 ## How to use
 
 Using `pingg` is as simple as typing the script name in your terminal window:
