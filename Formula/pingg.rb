@@ -1,8 +1,8 @@
 class Pingg < Formula
   desc "Graphical ping utility to monitor your internet connection quality"
   homepage "https://github.com/szn/pingg"
-  url "https://github.com/szn/pingg/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "ad9ac0b41972c9c6763c9a4de46fdd4d37df40710c1afe604b6f231f62ee58d6"
+  url "https://github.com/szn/pingg/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "fa16137cf53f37c3f08ac2133a2bf6f76d0996a5e71d66a966bdedce0ae53d5e"
   license "Apache"
 
   def install
